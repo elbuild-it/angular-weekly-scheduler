@@ -72,7 +72,7 @@ angular.module('weeklyScheduler')
         var el = element[0].querySelector(defaultOptions.selector);
 
         scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);
-        //console.log(scope.elementClickedFunction("ciao"));
+        console.log(scope.elementClickedFunction("ciao"));
 
 
         function onModelChange(items) {
