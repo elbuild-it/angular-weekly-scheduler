@@ -83,7 +83,7 @@ multi-slider .ghost {
   cursor: pointer;
 }
 
-multi-slider:hover .ghost {
+/*multi-slider:hover .ghost {
   display: block;
 }
 
@@ -94,6 +94,7 @@ multi-slider.slot-hover .ghost {
 multi-slider.dragging .ghost {
   display: none;
 }
+*/
 
 multi-slider weekly-slot {
   -webkit-transition: background 0.1s ease-in;
@@ -204,4 +205,17 @@ multi-slider weekly-slot.active {
 .schedule-animate.ng-leave, .schedule-animate.ng-hide-add {
   display: none;
   opacity: 1;
+}
+
+.montly-container{
+	width : 2500%; 
+	text-align : center;
+}
+
+.montly-container .glyphicon{
+	
+}
+
+.montly-container .glyphicon-arrow-right{
+	margin-left : 16.2%;
 }

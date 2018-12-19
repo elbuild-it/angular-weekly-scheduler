@@ -12,13 +12,17 @@ angular.module('weeklyScheduler')
     };
   }])
 
-  .directive('multiSlider', ['weeklySchedulerTimeService', function (timeService) {
+  .directive('multiSlider', ['$parse','weeklySchedulerTimeService', function ($parse,timeService) {
     return {
       restrict: 'E',
       require: '^weeklyScheduler',
       templateUrl: 'ng-weekly-scheduler/views/multi-slider.html',
       link: function (scope, element, attrs, schedulerCtrl) {
         var conf = schedulerCtrl.config;
+
+
+        scope.elementClickedFunction = $parse(attrs.elementClicked)(scope)
+        
 
         // The default scheduler block size when adding a new item
         var defaultNewScheduleSize = parseInt(attrs.size) || 8;

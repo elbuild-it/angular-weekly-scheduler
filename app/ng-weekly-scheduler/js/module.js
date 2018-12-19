@@ -12,6 +12,7 @@ function ctrlCheck(e) {
   }
 }
 
+
 function mouseScroll(el, delta) {
 
   window.addEventListener('keydown', ctrlCheck);
@@ -60,14 +61,14 @@ function zoomInACell(el, event, data) {
   var scheduleAreaWidthPx = nbElements * boxWidth;
   var scheduleAreaWidthPercent = (scheduleAreaWidthPx / containerWidth) * 100;
 
-  el.firstChild.style.width = scheduleAreaWidthPercent + '%';
+ // el.firstChild.style.width = scheduleAreaWidthPercent + '%';
 
   if (percentWidthFromBeginning === undefined) {
     // All cells of a line have the same size
-    el.scrollLeft = idx * boxWidth - gutterSize;
+   // el.scrollLeft = idx * boxWidth - gutterSize;
   } else {
     // Sizes of cells in a line could different (especially the first one)
-    el.scrollLeft = scheduleAreaWidthPx * (percentWidthFromBeginning / 100) - gutterSize;
+   // el.scrollLeft = scheduleAreaWidthPx * (percentWidthFromBeginning / 100) - gutterSize;
   }
 }
 /* jshint +W098 */

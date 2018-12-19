@@ -18,19 +18,25 @@ angular.module('weeklyScheduler')
       var now = moment();
 
       // Calculate min date of all scheduled events
-      var minDate = (schedules ? schedules.reduce(function (minDate, slot) {
+     /* var minDate = (schedules ? schedules.reduce(function (minDate, slot) {
         return timeService.compare(slot.start, 'isBefore', minDate);
-      }, now) : now).startOf('week');
+      }, now) : now).startOf('week');*/
+      var minDate = options.minDate;
+      var maxDate = options.maxDate;
 
       // Calculate max date of all scheduled events
-      var maxDate = (schedules ? schedules.reduce(function (maxDate, slot) {
+     /* var maxDate = (schedules ? schedules.reduce(function (maxDate, slot) {
         return timeService.compare(slot.end, 'isAfter', maxDate);
       }, now) : now).clone().add(1, 'year').endOf('week');
-
+*/	
+      //console.log("MinDate : ", minDate);
+     // console.log("maxDate : ", maxDate);
       // Calculate nb of weeks covered by minDate => maxDate
       var nbWeeks = timeService.weekDiff(minDate, maxDate);
 
-      var result = angular.extend(options, {minDate: minDate, maxDate: maxDate, nbWeeks: nbWeeks});
+      var nbDays = timeService.dayDiff(minDate, maxDate);
+
+      var result = angular.extend(options, {minDate: minDate, maxDate: maxDate, nbWeeks: nbWeeks, nbDays : nbDays, nbHours : (24*nbDays)});
       // Log configuration
       $log.debug('Weekly Scheduler configuration:', result);
 
@@ -41,8 +47,9 @@ angular.module('weeklyScheduler')
       restrict: 'E',
       require: 'weeklyScheduler',
       transclude: true,
+
       templateUrl: 'ng-weekly-scheduler/views/weekly-scheduler.html',
-      controller: ['$injector', function ($injector) {
+   	  controller: ['$injector', function ($injector) {
         // Try to get the i18n service
         var name = 'weeklySchedulerLocaleService';
         if ($injector.has(name)) {
@@ -63,6 +70,10 @@ angular.module('weeklyScheduler')
 
         // Get the schedule container element
         var el = element[0].querySelector(defaultOptions.selector);
+
+        scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);
+        //console.log(scope.elementClickedFunction("ciao"));
+
 
         function onModelChange(items) {
           // Check items are present
@@ -89,13 +100,36 @@ angular.module('weeklyScheduler')
             }, []), options);
 
             // Then resize schedule area knowing the number of weeks in scope
-            el.firstChild.style.width = schedulerCtrl.config.nbWeeks / 53 * 200 + '%';
+
+            el.firstChild.style.width = 1 / 53 * 200 + '%';
 
             // Finally, run the sub directives listeners
             schedulerCtrl.$modelChangeListeners.forEach(function (listener) {
               listener(schedulerCtrl.config);
             });
           }
+        }
+
+        scope.previousDay = function(){
+        	options.minDate = options.minDate.add(-1,'days');
+        	options.maxDate = options.maxDate.add(-1,'days');
+        	
+		        scope.$broadcast('previousDayClick', {
+		          options: options
+		        });
+
+		    schedulerCtrl.on.dayChange(options);
+
+        }
+
+        scope.nextDay = function(){
+        	options.minDate = options.minDate.add(1,'days');
+        	options.maxDate = options.maxDate.add(1,'days');
+        	
+		        scope.$broadcast('nextDayClick', {
+		          options: options
+		        });
+		     schedulerCtrl.on.dayChange(options);
         }
 
         if (el) {
@@ -111,6 +145,12 @@ angular.module('weeklyScheduler')
               var onChangeFunction = $parse(attrs.onChange)(scope);
               if (angular.isFunction(onChangeFunction)) {
                 return onChangeFunction(itemIndex, scheduleIndex, scheduleValue);
+              }
+            },
+            dayChange: function (options) {
+              var onDayChangeFunction = $parse(attrs.onDayChange)(scope);
+              if (angular.isFunction(onDayChangeFunction)) {
+                return onDayChangeFunction(options);
               }
             }
           };

@@ -65,7 +65,9 @@
                       items="model.items"
                       on-change="demo.doSomething"
                       on-delete="demo.doSomething"
-                      options="model.options">
+                      options="model.options"
+                      on-day-change="demo.nextDay",
+                      element-clicked="demo.redirect">
       <div class="srow">{{::$index + 1}}. {{item.label}}</div>
     </weekly-scheduler>
 

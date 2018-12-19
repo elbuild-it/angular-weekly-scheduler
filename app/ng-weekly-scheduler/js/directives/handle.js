@@ -5,7 +5,8 @@ angular.module('weeklyScheduler')
       scope: {
         ondrag: '=',
         ondragstop: '=',
-        ondragstart: '='
+        ondragstart: '=',
+        onclick: '='
       },
       link: function (scope, element) {
 
@@ -24,6 +25,17 @@ angular.module('weeklyScheduler')
             scope.ondragstart();
           }
         });
+
+        element.on('click', function (event) {
+        	event.preventDefault();
+        	$document.on('click', click);
+        	 if (scope.onclick) 
+        		scope.onclick();
+        });
+
+        function click (event){
+        	console.log(event);
+        }
 
         function mousemove(event) {
           var delta = event.pageX - x;

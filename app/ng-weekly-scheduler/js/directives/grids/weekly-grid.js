@@ -14,11 +14,18 @@ angular.module('weeklyScheduler')
     function doGrid(scope, element, attrs, model) {
       var i;
       // Calculate week width distribution
-      var tickcount = model.nbWeeks;
-      var ticksize = 100 / tickcount;
-      var gridItemEl = GRID_TEMPLATE.css({width: ticksize + '%'});
-      var now = model.minDate.clone().startOf('week');
 
+      var tickcount;
+      if(attrs.isday)
+       tickcount = 24;
+   	  else
+   	  	tickcount = 96
+      var ticksize = 100 / tickcount;
+
+   	  var gridItemEl;
+      if(!attrs.isday) gridItemEl = GRID_TEMPLATE.css({width: ticksize + '%','border-top': "grey", 'border-top-style': 'solid','border-top-width':'1px'});
+      else  gridItemEl = GRID_TEMPLATE.css({width: ticksize + '%'});
+      var now = model.minDate.clone().startOf('week');
       // Clean element
       element.empty();
 
@@ -26,7 +33,7 @@ angular.module('weeklyScheduler')
         var child = gridItemEl.clone();
         if (angular.isUndefined(attrs.noText)) {
           handleClickEvent(child, tickcount, i, scope);
-          child.text(now.add(i && 1, 'week').week());
+          child.text(i);
         }
         element.append(child);
       }

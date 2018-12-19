@@ -1,26 +1,33 @@
 angular.module('weeklyScheduler')
 
-  .directive('weeklySlot', ['weeklySchedulerTimeService', function (timeService) {
+  .directive('weeklySlot', ['$parse','weeklySchedulerTimeService', function ($parse,timeService) {
     return {
       restrict: 'E',
       require: ['^weeklyScheduler', 'ngModel'],
       templateUrl: 'ng-weekly-scheduler/views/weekly-slot.html',
       link: function (scope, element, attrs, ctrls) {
         var schedulerCtrl = ctrls[0], ngModelCtrl = ctrls[1];
+
+
+        
         var conf = schedulerCtrl.config;
         var index = scope.$parent.$index;
         var containerEl = element.parent();
         var resizeDirectionIsStart = true;
         var valuesOnDragStart = {start: scope.schedule.start, end: scope.schedule.end};
 
+
         var pixelToVal = function (pixel) {
           var percent = pixel / containerEl[0].clientWidth;
-          return Math.floor(percent * conf.nbWeeks + 0.5);
+          return Math.floor(percent * conf.nbHours*4 + 0.5);
         };
+
 
         var mergeOverlaps = function () {
           var schedule = scope.schedule;
           var schedules = scope.item.schedules;
+
+
           schedules.forEach(function (el) {
             if (el !== schedule) {
               // model is inside another slot
@@ -47,6 +54,16 @@ angular.module('weeklyScheduler')
           });
         };
 
+
+        ctrls.on = {
+            elementClicked: function (event) {
+              var elementClickedFunction = $parse(attrs.elementClicked)(scope);
+              if (angular.isFunction(elementClickedFunction)) {
+                return elementClickedFunction(event);
+              }
+            }
+          };
+
         /**
          * Delete on right click on slot
          */
@@ -71,6 +88,19 @@ angular.module('weeklyScheduler')
           containerEl.removeClass('slot-hover');
         });
 
+         element.on('click', function() {
+         	ctrls.on.elementClicked(scope.schedule);
+        });
+
+
+        scope.clickOnBar = function (){
+        	console.log();
+        }
+
+        scope.startResizeEnd = function () {
+            resizeDirectionIsStart = false;
+            scope.startDrag();
+          };
 
         if (scope.item.editable !== false) {
           scope.startResizeStart = function () {
@@ -153,7 +183,7 @@ angular.module('weeklyScheduler')
         }
 
         // on init, merge overlaps
-        mergeOverlaps(true);
+        //mergeOverlaps(true);
 
         //// UI -> model ////////////////////////////////////
         ngModelCtrl.$parsers.push(function onUIChange(ui) {
@@ -166,9 +196,15 @@ angular.module('weeklyScheduler')
 
         //// model -> UI ////////////////////////////////////
         ngModelCtrl.$formatters.push(function onModelChange(model) {
-          var ui = {
+          /*var ui = {
             start: timeService.weekPreciseDiff(conf.minDate, moment(model.start), true),
             end: timeService.weekPreciseDiff(conf.minDate, moment(model.end), true)
+          };*/
+          var start = {hour : 0, minute : 0}
+          var ui = {
+            start: timeService.quartersDiff(start, model.start),
+            end: timeService.quartersDiff(start, model.end),
+            rgb : model.rgb
           };
           //$log.debug('FORMATTER :', index, scope.$index, ui);
           return ui;
@@ -177,11 +213,20 @@ angular.module('weeklyScheduler')
         ngModelCtrl.$render = function () {
           var ui = ngModelCtrl.$viewValue;
           var css = {
-            left: ui.start / conf.nbWeeks * 100 + '%',
-            width: (ui.end - ui.start) / conf.nbWeeks * 100 + '%'
+            left: (ui.start / (conf.nbHours*4)) * 100 + '%',
+            width: ((ui.end - ui.start) / (conf.nbHours*4)) * 100+ '%',
+            background : ui.rgb || "#4eb8d5"
           };
 
-          //$log.debug('RENDER :', index, scope.$index, css);
+
+
+          /*var css = {
+            left: 0+ '%',
+            width: 100 + '%'
+          };*/
+
+
+          //console.log(element);
           element.css(css);
         };
 

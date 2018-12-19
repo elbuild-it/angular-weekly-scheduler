@@ -10,20 +10,124 @@ angular.module('demoApp', ['ngAnimate', 'weeklyScheduler', 'weeklySchedulerI18N'
 
   .controller('DemoController', ['$scope', '$timeout', 'weeklySchedulerLocaleService', '$log',
     function ($scope, $timeout, localeService, $log) {
+      
+
+     $scope.options = {minDate : moment(), maxDate :  moment().add(1, 'days')}
 
       $scope.model = {
         locale: localeService.$locale.id,
-        options: {/*monoSchedule: true*/},
+        options : $scope.options,
         items: [{
-          label: 'Item 1',
-          editable: false,
+          label: 'Item 56',
+          editable: true,
           schedules: [
-            {start: moment('2015-12-27').toDate(), end: moment('2016-08-01').toDate()}
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}, rgb : "red"},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
           ]
         }]
       };
 
-      $timeout(function () {
+      this.nextDay = function(event){
+	  	 $scope.model = {
+	        locale: localeService.$locale.id,
+	        options : $scope.options,
+	        items: [{
+	          label: 'Item 598',
+	          editable: true,
+	          schedules: [
+	            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "yellow"},
+	            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+	            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}, rgb : "red"},
+
+	          ]
+	        },
+	        {
+	          label: 'Item 52',
+	          editable: true,
+	          schedules: [
+	            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "geen"},
+	            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+	            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+	          ]
+	        }]
+	      };
+      }
+
+      this.redirect = function(event){
+      	console.log("ciao",event);
+      }
+
+      /*$scope.$on("nextDayClick", function(event){
+		     $scope.model = {
+		        locale: localeService.$locale.id,
+		        options : $scope.options,
+		        items: [{
+		          label: 'Item 59',
+		          editable: true,
+		          schedules: [
+		            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}},
+		            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+		            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}, rgb : "red"},
+
+		          ]
+		        },
+		        {
+		          label: 'Item 65',
+		          editable: true,
+		          schedules: [
+		            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+		            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+		            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+		          ]
+		        }]
+		      };
+ 	  })
+
+
+ 	  $scope.$on("previousDayClick", function(event){
+		     $scope.model = {
+		        locale: localeService.$locale.id,
+		        options : $scope.options,
+		        items: [{
+		          label: 'Item 59',
+		          editable: true,
+		          schedules: [
+		            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}},
+		            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+		            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}, rgb : "red"},
+
+		          ]
+		        },
+		        {
+		          label: 'Item 65',
+		          editable: true,
+		          schedules: [
+		            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+		            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+		            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+		          ]
+		        }]
+		      };
+ 	  })
+
+      
+
+     /* $timeout(function () {
         $scope.model.items = $scope.model.items.concat([{
           label: 'Item 2',
           schedules: [
@@ -37,7 +141,7 @@ angular.module('demoApp', ['ngAnimate', 'weeklyScheduler', 'weeklySchedulerI18N'
             {start: moment('2017-09-12').toDate(), end: moment('2017-10-12').toDate()}
           ]
         }]);
-      }, 1000);
+      }, 1000);*/
 
       this.doSomething = function (itemIndex, scheduleIndex, scheduleValue) {
         $log.debug('The model has changed!', itemIndex, scheduleIndex, scheduleValue);
