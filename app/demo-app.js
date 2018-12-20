@@ -67,7 +67,7 @@ angular.module('demoApp', ['ngAnimate', 'weeklyScheduler', 'weeklySchedulerI18N'
       }
 
       this.redirect = function(event){
-      	console.log("ciao",event);
+      	console.log("ciao", event);
       }
 
       /*$scope.$on("nextDayClick", function(event){

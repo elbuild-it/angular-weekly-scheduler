@@ -403,8 +403,8 @@ angular.module('weeklyScheduler')
       require: 'weeklyScheduler',
       transclude: true,
       //scope: {elementClicked: '@'},
-      binding: {
-      	elementClicked: '='
+      scope: {
+            elementClicked: '='
       },
       templateUrl: 'ng-weekly-scheduler/views/weekly-scheduler.html',
    	  controller: ['$injector', function ($injector) {
@@ -430,7 +430,11 @@ angular.module('weeklyScheduler')
         var el = element[0].querySelector(defaultOptions.selector);
         
     	scope.elementClickedFunction = scope.$eval(attrs.elementClicked);//attrs.elementClicked;
-    	console.log(scope.elementClickedFunction);
+    	//console.log(attrs.elementClicked);
+
+    	console.log(scope.elementClicked);
+
+    	//scope.elementClicked()("sono qui");
 
     	//attrs.$observe('elementClicked', function() {
 		    //console.log($parse(attrs.elementClicked)(scope));
