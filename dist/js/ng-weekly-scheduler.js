@@ -291,7 +291,7 @@ angular.module('weeklyScheduler')
         var conf = schedulerCtrl.config;
 
 
-        scope.elementClickedFunction = $parse(attrs.elementClicked)(scope)
+        scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);
         
 
         // The default scheduler block size when adding a new item
@@ -402,8 +402,10 @@ angular.module('weeklyScheduler')
       restrict: 'E',
       require: 'weeklyScheduler',
       transclude: true,
-     // scope: {elementClicked: '@'},
-
+      //scope: {elementClicked: '@'},
+      binding: {
+      	elementClicked: '='
+      },
       templateUrl: 'ng-weekly-scheduler/views/weekly-scheduler.html',
    	  controller: ['$injector', function ($injector) {
         // Try to get the i18n service
@@ -427,12 +429,13 @@ angular.module('weeklyScheduler')
         // Get the schedule container element
         var el = element[0].querySelector(defaultOptions.selector);
         
-    	//scope.elementClickedFunction = attrs.elementClicked;
+    	scope.elementClickedFunction = scope.$eval(attrs.elementClicked);//attrs.elementClicked;
+    	console.log(scope.elementClickedFunction);
 
     	//attrs.$observe('elementClicked', function() {
 		    //console.log($parse(attrs.elementClicked)(scope));
 		//})
-		console.log(scope.$eval(attrs.elementClicked))
+		//console.log(scope.$eval(attrs.elementClicked))
 
 			/*scope.$watch('elementClickedFunction', function (oldValue, newValue) {
 				if(newValue){

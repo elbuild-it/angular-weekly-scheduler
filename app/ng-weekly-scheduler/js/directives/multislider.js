@@ -21,7 +21,7 @@ angular.module('weeklyScheduler')
         var conf = schedulerCtrl.config;
 
 
-        scope.elementClickedFunction = $parse(attrs.elementClicked)(scope)
+        scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);
         
 
         // The default scheduler block size when adding a new item
