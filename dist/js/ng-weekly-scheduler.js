@@ -402,10 +402,7 @@ angular.module('weeklyScheduler')
       restrict: 'E',
       require: 'weeklyScheduler',
       transclude: true,
-      //scope: {elementClicked: '@'},
-      scope: {
-            elementClicked: '='
-      },
+      
       templateUrl: 'ng-weekly-scheduler/views/weekly-scheduler.html',
    	  controller: ['$injector', function ($injector) {
         // Try to get the i18n service
