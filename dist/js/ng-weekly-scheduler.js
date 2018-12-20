@@ -425,12 +425,15 @@ angular.module('weeklyScheduler')
 
         // Get the schedule container element
         var el = element[0].querySelector(defaultOptions.selector);
-        console.log(attrs);
-        while(!scope.elementClickedFunction){
-        	scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);
-        	
-        console.log(scope.elementClickedFunction);
-        }
+        
+    	scope.elementClickedFunction = attrs.elementClicked;
+
+			scope.$watch('elementClickedFunction', function (oldValue, newValue) {
+				if(newValue){
+			    	scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);
+			    	console.log(scope.elementClickedFunction)
+			    }
+			});
 
 
         function onModelChange(items) {
