@@ -47,6 +47,7 @@ angular.module('weeklyScheduler')
       restrict: 'E',
       require: 'weeklyScheduler',
       transclude: true,
+     // scope: {elementClicked: '@'},
 
       templateUrl: 'ng-weekly-scheduler/views/weekly-scheduler.html',
    	  controller: ['$injector', function ($injector) {
@@ -71,14 +72,19 @@ angular.module('weeklyScheduler')
         // Get the schedule container element
         var el = element[0].querySelector(defaultOptions.selector);
         
-    	scope.elementClickedFunction = attrs.elementClicked;
+    	//scope.elementClickedFunction = attrs.elementClicked;
 
-			scope.$watch('elementClickedFunction', function (oldValue, newValue) {
+    	//attrs.$observe('elementClicked', function() {
+		    //console.log($parse(attrs.elementClicked)(scope));
+		//})
+		console.log(scope.$eval(attrs.elementClicked))
+
+			/*scope.$watch('elementClickedFunction', function (oldValue, newValue) {
 				if(newValue){
 			    	scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);
 			    	console.log(scope.elementClickedFunction)
 			    }
-			});
+			});*/
 
 
         function onModelChange(items) {
