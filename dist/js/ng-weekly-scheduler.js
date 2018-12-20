@@ -425,7 +425,7 @@ angular.module('weeklyScheduler')
 
         // Get the schedule container element
         var el = element[0].querySelector(defaultOptions.selector);
-
+        console.log(attrs);
         scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);
         console.log(scope.elementClickedFunction);
 
