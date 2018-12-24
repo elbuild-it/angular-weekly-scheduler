@@ -102,7 +102,7 @@ angular.module('weeklyScheduler')
       var totalWidth = 0;
 
       days.forEach(function (day, idx) {
-        var child = GRID_TEMPLATE.clone().css({ width: 400 + '%'});
+        var child = GRID_TEMPLATE.clone().css({ width: 400 + '%', "margin-top": "14px"});
         // child = GRID_TEMPLATE.clone().css({ width: 2653 + '%'});
         //child.css({ 'border-bottom': "grey"})
         if (angular.isUndefined(attrs.noText)) {
