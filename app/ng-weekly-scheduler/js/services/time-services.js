@@ -87,9 +87,11 @@ angular.module('weeklyScheduler')
         var endDate = maxDate.clone();
         var dayDiff = this.dayDiff(startDate, endDate);
         var quartersInDay = 96;
-
         //var total = 0, totalDays = 0;
         // console.log(startDate.toDate(), endDate.toDate(), monthDiff, dayDiff);
+        if(dayDiff == 0){
+        	result.push({start: minDate.clone(), end: maxDate.clone(), width: Math.floor(dayInMonth / 1 * 1E8) / 1E6});
+        }
         for (i = 0; i < dayDiff; i++) {
           var startOfMonth = i === 0 ? startDate : startDate.add(1, DAY).startOf(DAY);
           var endOfMonth = i === dayDiff - 1 ? endDate : startDate.clone().endOf(DAY);

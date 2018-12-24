@@ -13,8 +13,8 @@ angular.module('demoApp', ['ngAnimate', 'weeklyScheduler', 'weeklySchedulerI18N'
       
      var mintoday =  moment().set({hour:0,minute:0,second:0,millisecond:0});
      var maxtoday =moment().set({hour:23,minute:59,second:59});
+
      $scope.options = {minDate :mintoday, maxDate :  maxtoday}
-     console.log($scope.options)
 
       $scope.model = {
         locale: localeService.$locale.id,
