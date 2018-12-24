@@ -71,24 +71,10 @@ angular.module('weeklyScheduler')
         // Get the schedule container element
         var el = element[0].querySelector(defaultOptions.selector);
         
-    	scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);//scope.$eval(attrs.elementClicked);//attrs.elementClicked;
-    	//console.log(attrs.elementClicked);
-
-    	//console.log(scope.elementClicked);
-
-    	//scope.elementClicked()("sono qui");
-
-    	//attrs.$observe('elementClicked', function() {
-		    //console.log($parse(attrs.elementClicked)(scope));
-		//})
-		//console.log(scope.$eval(attrs.elementClicked))
-
-			/*scope.$watch('elementClickedFunction', function (oldValue, newValue) {
-				if(newValue){
-			    	scope.elementClickedFunction = $parse(attrs.elementClicked)(scope);
-			    	console.log(scope.elementClickedFunction)
-			    }
-			});*/
+    	scope.elementClickedFunction = function(){
+    		console.log("cane");
+    	}	
+    	//$parse(attrs.elementClicked)(scope);
 
 
         function onModelChange(items) {
