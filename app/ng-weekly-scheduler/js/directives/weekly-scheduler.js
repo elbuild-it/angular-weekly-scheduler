@@ -72,7 +72,7 @@ angular.module('weeklyScheduler')
         var el = element[0].querySelector(defaultOptions.selector);
         
     	scope.elementClickedFunction = function(){
-    		console.log("cane");
+    		console.log("reload");
     	}	
     	//$parse(attrs.elementClicked)(scope);
 
