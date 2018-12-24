@@ -74,7 +74,6 @@ angular.module('weeklyScheduler')
     	scope.elementClickedFunction = function(){
     		console.log("reload");
     	}	
-    	//$parse(attrs.elementClicked)(scope);
 
 
         function onModelChange(items) {

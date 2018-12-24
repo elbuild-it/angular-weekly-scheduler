@@ -39,6 +39,29 @@
   line-height: 35px;
 }
 
+.srowtable{
+	width : 100%
+}
+
+.srowtable td{
+position: relative;
+	height : 34.9px !important;
+	padding : 5px;
+
+}
+.srowtable .tdright{
+	border-left: solid;
+    border-width: 1px;
+
+}
+
+
+
+.srowtable .right{
+ text-align : right;
+ margin-right : 5px;
+}
+
 .scheduler .timestamps {
   color: #aaa;
   position: relative;

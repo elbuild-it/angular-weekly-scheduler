@@ -68,7 +68,15 @@
                       options="model.options"
                       on-day-change="demo.nextDay",
                       element-clicked="demo.redirect">
-      <div class="srow">{{::$index + 1}}. {{item.label}}</div>
+      <table class="srowtable" ng-show="!model.showtime" >
+      	<head>
+      		<tr>
+      			<td>{{item.label}}</td>
+				<td class="right tdright">11:00</td>
+      		 </tr>
+	      	</head>
+      </table>
+      <div ng-show="model.showtime" class="srow">{{item.label}}</div>
     </weekly-scheduler>
 
     <div class="pull-right">

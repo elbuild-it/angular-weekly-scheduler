@@ -6,6 +6,7 @@ angular.module('weeklyScheduler')
         if (!$transclude) {
           throw 'Illegal use of ngTransclude directive in the template! No parent directive that requires a transclusion found.';
         }
+
         var innerScope = $scope.$new();
         $transclude(innerScope, function (clone) {
           $element.empty();

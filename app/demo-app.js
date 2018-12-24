@@ -17,9 +17,11 @@ angular.module('demoApp', ['ngAnimate', 'weeklyScheduler', 'weeklySchedulerI18N'
       $scope.model = {
         locale: localeService.$locale.id,
         options : $scope.options,
+        showtime : true,
         items: [{
           label: 'Item 56',
           editable: true,
+          data : { src : "test"},
           schedules: [
             {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
             {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
@@ -30,6 +32,249 @@ angular.module('demoApp', ['ngAnimate', 'weeklyScheduler', 'weeklySchedulerI18N'
         {
           label: 'Item 58',
           editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
+          schedules: [
+            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
+            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
+            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
+
+          ]
+        },
+        {
+          label: 'Item 58',
+          editable: true,
+          data : { src : "test"},
           schedules: [
             {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
             {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
