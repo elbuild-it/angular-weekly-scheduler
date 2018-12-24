@@ -57,7 +57,8 @@ angular.module('weeklyScheduler')
         return end.clone().endOf(MONTH).diff(start.clone().startOf(MONTH), MONTH) + 1;
       },
       dayDiff: function (start, end) {
-        return end.clone().endOf(DAY).diff(start.clone().startOf(DAY), DAY) ;
+      	return 1;
+        //return end.clone().endOf(DAY).diff(start.clone().startOf(DAY), DAY) ;
       },
       monthDistribution: function (minDate, maxDate) {
         var i, result = [];
