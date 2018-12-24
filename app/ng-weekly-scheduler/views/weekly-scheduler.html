@@ -1,5 +1,5 @@
 <div class="labels">
-  <div class="srow text-right">{{schedulerCtrl.config.labels.day || 'Days'}}</div>
+  <div  class="srow text-right">{{schedulerCtrl.config.labels.day || 'Days'}}</div>
   <div class="srow text-right">{{schedulerCtrl.config.labels.hour || 'Hours'}}</div>
   <div class="schedule-animate" ng-repeat="item in schedulerCtrl.items" inject>
   </div>
@@ -26,7 +26,7 @@
     </div>
 </div>
 
-    <div class="srow schedule-animate" style="width : 2650%" ng-repeat="item in schedulerCtrl.items">
+    <div  class="srow schedule-animate" style="width : 2650%" ng-repeat="item in schedulerCtrl.items">
       <weekly-grid  isQuarters="true" class="grid-container striped" no-text></weekly-grid>
       <multi-slider element-clicked='elementClickedFunction' style="{background : red !important}" index="{{$index}}"></multi-slider>
     </div>
