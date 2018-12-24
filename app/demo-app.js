@@ -11,8 +11,10 @@ angular.module('demoApp', ['ngAnimate', 'weeklyScheduler', 'weeklySchedulerI18N'
   .controller('DemoController', ['$scope', '$timeout', 'weeklySchedulerLocaleService', '$log',
     function ($scope, $timeout, localeService, $log) {
       
-
-     $scope.options = {minDate : moment(), maxDate :  moment().add(1, 'days')}
+     var mintoday =  moment().set({hour:0,minute:0,second:0,millisecond:0});
+     var maxtoday =moment().set({hour:23,minute:59,second:59});
+     $scope.options = {minDate :mintoday, maxDate :  maxtoday}
+     console.log($scope.options)
 
       $scope.model = {
         locale: localeService.$locale.id,
@@ -149,166 +151,11 @@ angular.module('demoApp', ['ngAnimate', 'weeklyScheduler', 'weeklySchedulerI18N'
             {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
 
           ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
-        },
-        {
-          label: 'Item 58',
-          editable: true,
-          data : { src : "test"},
-          schedules: [
-            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "red"},
-            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-          ]
         }]
       };
 
       this.nextDay = function(event){
-	  	 $scope.model = {
-	        locale: localeService.$locale.id,
-	        options : $scope.options,
-	        items: [{
-	          label: 'Item 598',
-	          editable: true,
-	          schedules: [
-	            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "yellow"},
-	            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-	            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}, rgb : "red"},
-
-	          ]
-	        },
-	        {
-	          label: 'Item 52',
-	          editable: true,
-	          schedules: [
-	            {start:{hour : 3, minute : 30} , end: {hour : 5, minute : 45}, rgb : "geen"},
-	            {start:{hour : 6, minute : 30} , end: {hour : 8, minute : 30}, rgb : "red"},
-	            {start:{hour : 9, minute : 30} , end: {hour : 18, minute : 30}},
-
-	          ]
-	        }]
-	      };
+	  	 console.log(event);
       }
 
       this.redirect = function(event){

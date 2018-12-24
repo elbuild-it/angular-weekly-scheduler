@@ -55,6 +55,12 @@ position: relative;
 
 }
 
+.srowtable .space{
+	height : 2px !important;
+	border-right: solid;
+    border-width: 1px;
+}
+
 
 
 .srowtable .right{

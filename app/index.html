@@ -68,15 +68,16 @@
                       options="model.options"
                       on-day-change="demo.nextDay",
                       element-clicked="demo.redirect">
-      <table class="srowtable" ng-show="!model.showtime" >
+      <table class="srowtable" ng-show="model.showtime" >
       	<head>
       		<tr>
       			<td>{{item.label}}</td>
-				<td class="right tdright">11:00</td>
+				<td class="right tdright">{{item.total}}</td>
       		 </tr>
+      		 <tr  ng-show={{($index+1)%10==0}}> <td class="space"></td></tr>
 	      	</head>
       </table>
-      <div ng-show="model.showtime" class="srow">{{item.label}}</div>
+      <!--<div ng-show="model.showtime" class="srow">{{item.label}}</div>-->
     </weekly-scheduler>
 
     <div class="pull-right">
