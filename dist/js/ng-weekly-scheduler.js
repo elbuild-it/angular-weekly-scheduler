@@ -469,7 +469,7 @@ angular.module('weeklyScheduler')
 
         scope.previousDay = function(){
         	options.minDate = options.minDate.add(-1,'days');
-        	options.maxDate = moment(options.minDate).set({hour:23,minute:59,second:59});
+        	options.maxDate = moment(options.minDate).tz("Australia/Perth").set({hour:23,minute:59,second:59});
         	
 		        scope.$broadcast('previousDayClick', {
 		          options: options
@@ -481,7 +481,7 @@ angular.module('weeklyScheduler')
 
         scope.nextDay = function(){
         	options.minDate = options.minDate.add(1,'days');
-        	options.maxDate = moment(options.minDate).set({hour:23,minute:59,second:59});
+        	options.maxDate = moment(options.minDate).tz("Australia/Perth").set({hour:23,minute:59,second:59});
         	
 		        scope.$broadcast('nextDayClick', {
 		          options: options
