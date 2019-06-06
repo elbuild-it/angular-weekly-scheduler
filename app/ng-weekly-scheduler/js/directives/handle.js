@@ -34,7 +34,6 @@ angular.module('weeklyScheduler')
         });
 
         function click (event){
-        	console.log(event);
         }
 
         function mousemove(event) {

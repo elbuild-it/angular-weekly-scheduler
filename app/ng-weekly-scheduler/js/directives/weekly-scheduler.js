@@ -72,7 +72,6 @@ angular.module('weeklyScheduler')
         var el = element[0].querySelector(defaultOptions.selector);
         
     	scope.elementClickedFunction = function(item){
-            console.log("reload", item);
             scope.$broadcast('ride-click', {ride : item});
     	}	
 
@@ -87,7 +86,6 @@ angular.module('weeklyScheduler')
             }
 
             // Keep track of our model (use it in template)
-            console.log('items', items);
             schedulerCtrl.items = items;
 
             // First calculate configuration
