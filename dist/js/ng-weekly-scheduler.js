@@ -429,7 +429,7 @@ angular.module('weeklyScheduler')
         
     	scope.elementClickedFunction = function(item){
             console.log("reload", item);
-            //scope.$broadcast('ride-click', {ride : item});
+            scope.$broadcast('ride-click', {ride : item});
     	}	
 
 
